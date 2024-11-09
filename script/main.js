@@ -10,10 +10,18 @@ const loadData = async()=>{
 const displayData = (data)=>{
     // console.log(data)
     const cardSection = document.getElementById('card-section')
+    
 
     data.forEach(data=>{
-        console.log(data)
+      const isActive = data.isActive;
+      // greenOrRed(isActive)
+      
+
+        // console.log(data)
          const card = document.createElement('div');
+         
+        //  console.log(isActive)
+         
          card.classList="card card-side bg-base-100 shadow-xl ";
          card.innerHTML=`
           <figure>
@@ -21,9 +29,12 @@ const displayData = (data)=>{
                 src="${data.image}"
                 alt="Movie" />
                 <div>
-                <img src="/images/green.png" alt="">
-                <img class="" src="/images/red.png" alt="">
-              </div>
+                 <div id="green-dot" class="hidden"> 
+                <img   src="/images/green.png"  alt="">
+                </div>
+               <div id="red-dot" class="hidden"> 
+                <img   src="/images/red.png"  alt="">
+                </div>
             </figure>
             <div class="card-body">
               <div class="flex gap-2">
@@ -39,15 +50,77 @@ const displayData = (data)=>{
               </div>
               
               <div class="card-actions justify-end">
-                <button class="btn "><img src="/images/email 1.svg" alt=""></button>
+                <button onclick="titleSection('${data.title}','${data.view_count}')" class="btn "><img src="/images/email 1.svg" alt=""></button>
               </div>
             </div>
+
+
          
          `
+         
+       
+       
          cardSection.appendChild(card)
 
+
     });
+   
+  
+}
+
+// const greenOrRed = (active)=>{
+//   const greenDot = document.getElementById('green-dot');
+//   const redDot = document.getElementById('red-dot');
+//   // console.log(greenDot)
+//   console.log(active);
+//   if(active===true){
+//     greenDot.classList.remove('hidden');
+//   }else{
+//     redDot.classList.remove('hidden')
+    
+//   }
+  
+// }
+
+const titleSection=(title,view)=>{
+  console.log(title,view);
+  const titleSection =document.getElementById('title-section')
+  const newTitle = document.createElement('div');
+  newTitle.classList =`card card-side bg-base-100 shadow-xl p-4 `;
+  newTitle.innerHTML =`
+  <div class="flex gap-5">
+  <div>
+
+  <p>${title}</p>
+  
+  
+  </div>
+  <div class="flex">
+  <img src="/images/eye.svg" alt="">
+  
+  <p>${view}</p>
+  
+  
+  </div>
+  
+  
+  
+  
+  </div>
+  
+  `
+titleSection.appendChild(newTitle)
+
 
 }
 
 loadData()
+let count =0;
+function clickCount(){
+ 
+
+  let display = document.getElementById('clickCount');
+  count++;
+  console.log(count)
+  display.innerHTML=count;
+}

@@ -100,7 +100,7 @@
        <p>Yes, you can run unit tests and view  the results directly within the app. The <br> integrated testing features allow for a streamlined .</p>
       </div>
       <!-- discussion card section -->
-       <section class="flex justify-center mt-10 gap-10">
+       <section onclick="clickCount()" id="click-button" class="flex justify-center mt-10 gap-10">
         <!-- cards -->
          <div id="card-section" class="space-y-4">
 
@@ -111,14 +111,14 @@
 
          </div>
          <!-- Title -->
-          <div>
+          <div id="title-section" class="space-y-4">
             <!-- title head -->
             <div class=" flex gap-9 ">
               <div>
               <h1 class="text-xl font-extrabold">Title</h1>
             </div>
             <div>            
-              <p>Mark as Read <span>(4)</span> </p>
+              <p>Mark as Read <span id="clickCount">(4)</span> </p>
             </div>
             </div>
 
@@ -126,6 +126,26 @@
           </div>
 
        </section>
+
+
+       <!-- join our forum -->
+        <section class="mt-10">
+          <div class="hero bg-[#12132D] min-h-screen">
+            <div class="hero-content flex-col lg:flex-row-reverse">
+              <img
+                src="/images/joinforum.png"
+                class="max-w-sm rounded-lg shadow-2xl" />
+              <div>
+                <h1 class="text-5xl font-bold text-white">Join Our Forum</h1>
+                <p class="py-6 text-white">
+                  Share your favorite opinion and win and wp forum coffee mug! Yes, you can run unit tests and view the results directly within the app. 
+                </p>
+                <button class="btn btn-primary font-extrabold bg-[#797DFC] rounded-full px-10">Registered Now</button>
+              </div>
+            </div>
+          </div>
+
+        </section>
 
 
 
