@@ -1,7 +1,7 @@
-const loadData = async()=>{
-    const res = await fetch(` https://openapi.programming-hero.com/api/retro-forum/posts`)
+const loadData = async(search='comedy')=>{
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${search}`)
     const data = await res.json();
-    // console.log(data)
+    console.log(data)
     const posts =data.posts
     displayData(posts)
 }
@@ -169,4 +169,21 @@ const latestPostDisplay =(data)=>{
   })
 
 }
+
+
+const searchCategory=()=>{
+  const search = document.getElementById('search-category');
+  search.innerText='';
+  const text = search.value;
+ loadData(text);
+}
+const searchBtn=()=>{
+ searchCategory()
+
+}
+
+
+
+
 latestPost()
+

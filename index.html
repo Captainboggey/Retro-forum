@@ -25,12 +25,12 @@
     <header>
          <!-- nav-section -->
         <nav>
-            <div class="navbar bg-base-100">
+            <div class="navbar bg-base-100 flex flex-col lg:flex-row">
                 <div class="flex-1">
                   <a class="btn btn-ghost text-4xl font-extrabold">ReTro</a>
                 </div>
-                <div class="flex-none">
-                  <ul class="menu menu-horizontal px-1 gap-2">
+                <div class="flex ">
+                  <ul class="menu menu-horizontal px-1 gap-2 justify-center">
                     <li><button class="btn btn-primary bg-gray-100 border-none rounded-full tooltip tooltip-bottom" data-tip ="Home"><img src="/images/home.png" alt=""></button></li>
                     <li><button class="btn btn-primary bg-gray-100 border-none  rounded-full tooltip tooltip-bottom" data-tip ="Edit"><img src="/images/pen.png" alt=""></button></li>
                     <li><button class="btn btn-primary bg-gray-100 border-none  rounded-full tooltip tooltip-bottom" data-tip ="add"><img src="/images/add.png" alt=""></button></li>
@@ -85,8 +85,8 @@
                         Share your favorite opinion and win and wp forum coffee mug!
                     </p>
                     <div>
-                        <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-                        <button class="btn btn-primary py-4">Search</button>
+                        <input type="text" id="search-category" placeholder="Search Here" class="input input-bordered w-full max-w-xs" />
+                        <button onclick="searchBtn()" class="btn btn-primary py-4">Search</button>
                     </div>
                   </div>
                 </div>
@@ -100,7 +100,7 @@
        <p>Yes, you can run unit tests and view  the results directly within the app. The <br> integrated testing features allow for a streamlined .</p>
       </div>
       <!-- discussion card section -->
-       <section onclick="clickCount()" id="click-button" class="flex justify-center mt-10 gap-10">
+       <section onclick="clickCount()" id="click-button" class="flex flex-col lg:flex-row justify-center mt-10 gap-10">
         <!-- cards -->
          <div id="card-section" class="space-y-4">
 
@@ -118,7 +118,7 @@
               <h1 class="text-xl font-extrabold">Title</h1>
             </div>
             <div>            
-              <p>Mark as Read <span id="clickCount">(4)</span> </p>
+              <p>Mark as Read <span id="clickCount">(0)</span> </p>
             </div>
             </div>
 
@@ -157,7 +157,7 @@
          </section>
          <!-- latest card -->
           <section>
-            <div id="latest-card" class="flex justify-center mt-10 gap-2">
+            <div id="latest-card" class="flex flex-col lg:flex-row justify-center mt-10 gap-2">
               
             </div>
             
