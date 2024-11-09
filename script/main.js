@@ -124,3 +124,49 @@ function clickCount(){
   console.log(count)
   display.innerHTML=count;
 }
+
+const latestPost =async()=>{
+  const res = await fetch(` https://openapi.programming-hero.com/api/retro-forum/latest-posts`)
+  const data = await res.json();
+  // console.log(data);
+  latestPostDisplay(data)
+}
+
+const latestPostDisplay =(data)=>{
+  const latestSection = document.getElementById('latest-card')
+  console.log(data);
+
+  data.forEach(data =>{
+    console.log(data)
+    const newPost = document.createElement('div');
+    newPost.classList=`card bg-base-100 w-96 shadow-xl`;
+    newPost.innerHTML=`
+     <figure>
+                  <img
+                    src="${data.cover_image}"
+                    alt="Shoes" />
+                </figure>
+                <div class="card-body">
+                  <div class="flex gap-1">
+                    <img src="/images/bag.svg" alt="">
+                    <h3> ${data?.author?.posted_date}</h3>
+                  </div>
+                  <h2 class="card-title">${data.title}</h2>
+                  <p>${data.description} </p>
+                  <div class="flex gap-2">
+                    <div>
+                      <img src="${data.profile_image}" class="rounded-full" alt="">
+                    </div>
+                    <div>
+                      <h1 class="font-extrabold">${data.author.name}</h1>
+                      <p>${data?.author?.designation}</p>
+                    </div>
+                  </div>
+                </div>
+    
+    `
+    latestSection.appendChild(newPost)
+  })
+
+}
+latestPost()
