@@ -1,10 +1,14 @@
+
+
 const loadData = async(search='comedy')=>{
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${search}`)
     const data = await res.json();
     console.log(data)
     const posts =data.posts
+    
     displayData(posts)
 }
+
 
 
 const displayData = (data)=>{
@@ -19,6 +23,7 @@ const displayData = (data)=>{
 
         // console.log(data)
          const card = document.createElement('div');
+         
          
         //  console.log(isActive)
          
@@ -59,8 +64,10 @@ const displayData = (data)=>{
          `
          
        
-       
+         
          cardSection.appendChild(card)
+
+         toggleSpinner(false)
 
 
     });
@@ -179,7 +186,19 @@ const searchCategory=()=>{
 }
 const searchBtn=()=>{
  searchCategory()
+ toggleSpinner(true)
 
+}
+
+const toggleSpinner=(isLoading)=>{
+
+  const spinner = document.getElementById('toggle-spinner');
+  if(isLoading){
+    spinner.classList.remove('hidden')
+  }else{
+    spinner.classList.add('hidden')
+  }
+  
 }
 
 
