@@ -12,7 +12,7 @@ const loadData = async(search='comedy')=>{
 
 
 const displayData = (data)=>{
-    // console.log(data)
+    console.log(data)
     const cardSection = document.getElementById('card-section')
     
 
